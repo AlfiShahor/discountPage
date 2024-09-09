@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Code Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Embedded CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4Ts3ol7YApdxYTnxdQle4CQaIIWLNeX0YAFzIfp1bCnpbi2OETI5n3D6IgsnWAe5-EBU3i4VDmEQEFcfMvY-AWqlz3v4Bczf7TOkjDZHJx8_M4tBtzEsEpmO4Qai6Sx_UgZKZWohcQeaXhnr-mvPTRm4JIpYWr5Xu3dLHMKjTEOMInc0NU4fd0lmPQmw/s1600/%E2%80%94Pngtree%E2%80%94food%20vouchers%20new%20year%20s_1079798.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        button:focus {
+            outline: 2px solid #0056b3;
+        }
+
+        .error {
+            color: #d9534f;
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+        }
+
+        .success {
+            color: #5bc0de;
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            margin-right: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .icon-container:hover {
+            background-color: #0056b3;
+            color: #e0e0e0;
+        }
+
+        .icon-container a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        h1, p {
+            color: white; /* Ensure text is readable over the background */
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <h1>Get Your Discount Code</h1>
+        <p>Please enter your order completion code below:</p>
+        <input type="text" id="userCode" placeholder="Enter your code here" aria-label="Order completion code" />
+        <button onclick="generateDiscount()">Get Discount</button>
+        <div id="result"></div>
+        <div id="options" class="hidden">
+            <button onclick="showHelp()">
+                <div class="icon-container">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                Help
+            </button>
+            <a href="https://example.com/download" target="_blank" aria-label="Download app">
+                <div class="icon-container">
+                    <i class="fas fa-download"></i>
+                </div>
+                Download
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Embedded JavaScript
+        const validCodes = ["ORDER123", "ORDER456", "ORDER789"]; // Example valid order completion codes
+        const discountCodes = ["9QSCN", "35809", "Y41PQ", "9D4W8", "9N2HF", "XF35U", "31GYQ", "5RQRD", "IWVE8", "8N278"]; // Pre-arranged discount codes
+
+        function generateDiscount() {
+            const userCode = document.getElementById("userCode").value.trim();
+            const resultElement = document.getElementById("result");
+            const optionsElement = document.getElementById("options");
+
+            if (validCodes.includes(userCode)) {
+                // If the user code is valid, generate a random discount code
+                const randomIndex = Math.floor(Math.random() * discountCodes.length);
+                const discountCode = discountCodes[randomIndex];
+                resultElement.innerHTML = `<p class="success">Your discount code: <strong>${discountCode}</strong></p>`;
+                optionsElement.classList.add("hidden");
+            } else {
+                // If the code is invalid, show the help and download options
+                resultElement.innerHTML = "<p class='error'>Invalid code. Please try again.</p>";
+                optionsElement.classList.remove("hidden");
+            }
+        }
+
+        function showHelp() {
+            alert("Please contact our support team for assistance.");
+        }
+    </script>
+</body>
+</html>
