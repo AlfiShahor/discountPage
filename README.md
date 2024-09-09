@@ -1,0 +1,2 @@
+# discountPage
+Get discount codes
