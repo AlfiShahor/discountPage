@@ -17,7 +17,7 @@
 
         .container {
             position: relative;
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4Ts3ol7YApdxYTnxdQle4CQaIIWLNeX0YAFzIfp1bCnpbi2OETI5n3D6IgsnWAe5-EBU3i4VDmEQEFcfMvY-AWqlz3v4Bczf7TOkjDZHJx8_M4tBtzEsEpmO4Qai6Sx_UgZKZWohcQeaXhnr-mvPTRm4JIpYWr5Xu3dLHMKjTEOMInc0NU4fd0lmPQmw/s1600/%E2%80%94Pngtree%E2%80%94food%20vouchers%20new%20year%20s_1079798.jpg');
+            background-image: url('123.jpg'); /* Background image */
             background-size: cover;
             background-position: center;
             padding: 30px;
@@ -67,18 +67,17 @@
 
         button {
             width: 100%;
-            padding: 10px 20px;
+            padding: 10px;
             font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
         }
 
         button:hover {
@@ -87,7 +86,7 @@
         }
 
         button:focus {
-            outline: 2px solid #0056b3;
+            outline: none;
         }
 
         .error {
@@ -111,23 +110,31 @@
             }
         }
 
+        /* Adjusted Help Button Style */
+        #options button {
+            padding: 5px 10px; /* Smaller padding for compact look */
+            font-size: 12px;   /* Reduced font size */
+            width: auto;       /* Button width adjusts based on content */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .icon-container {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 20px; /* Reduced icon size */
+            height: 20px; /* Reduced icon size */
             background-color: #007bff;
             color: white;
-            margin-right: 8px;
-            font-size: 18px;
-            transition: background-color 0.3s, color 0.3s;
+            border-radius: 50%;
+            margin-right: 6px;
+            font-size: 10px; /* Reduced icon font size */
         }
 
         .icon-container:hover {
             background-color: #0056b3;
-            color: #e0e0e0;
         }
 
         .icon-container a {
